@@ -14,7 +14,7 @@ const ProductTile = ({ productName, productPrice, productImageSrc }) => {
 {/* if you want to include animation, npm install & replace
 with the below (include commented out App.jsx code too)
 
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; 
 
 const ProductTile = ({ productName, productPrice, productImageSrc, stagger }) => {
   return (
