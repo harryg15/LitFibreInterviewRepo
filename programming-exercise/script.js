@@ -120,6 +120,8 @@ const calculateBasket = (products) => {
         }
       }
     }
+    let originalPrice = orderPrice
+    console.log(originalPrice)
 
     // CURRENT TOTALS
     // e.g. ["savoury muffin", "coffee", "hot chocolate"] 
@@ -203,16 +205,20 @@ const calculateBasket = (products) => {
     // promoTotals = [3.8, 4.5]
 
     // we can now determine the most cost effective option! 
-    cheapestPrice = Math.min(...promoTotals) 
+    cheapestPrice = Math.min(...promoTotals)
+    let savings = (originalPrice - cheapestPrice).toFixed(1)
+    let discount = `You're saving £${savings}!`
     
     // if no promotion was found
     if (cheapestPrice === Infinity) {
       cheapestPrice = orderPrice;
+      discount = "Not eligible";
     }
 
     return {
       totalPrice: cheapestPrice,
-      totalCalories: orderCals
+      totalCalories: orderCals,
+      discount 
     }
 
   // JavaScript exercise
@@ -244,9 +250,9 @@ const calculateBasket = (products) => {
 // Exercise output (don't change anything of these but feel free to add more tests)
 //  console.log(calculateBasket(["brownie", "iced coffee"]));
 
-//  console.log(calculateBasket(["blueberry muffin", "carrot cake"]));
+  console.log(calculateBasket(["blueberry muffin", "carrot cake"]));
 
-  console.log(calculateBasket(["savoury muffin", "coffee", "hot chocolate"]));
+//  console.log(calculateBasket(["savoury muffin", "coffee", "hot chocolate"]));
 
 //  console.log(
 //    calculateBasket([
