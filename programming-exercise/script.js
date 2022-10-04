@@ -209,7 +209,7 @@ const calculateBasket = (products) => {
     
     // if no promotion was found
     if (cheapestPrice === Infinity) {
-      cheapestPrice = orderPrice;
+      cheapestPrice = originalPrice;
       discount = "Not eligible";
     }
 
@@ -250,7 +250,7 @@ const calculateBasket = (products) => {
 
 //  console.log(calculateBasket(["blueberry muffin", "carrot cake"]));
 
-  console.log(calculateBasket(["savoury muffin", "coffee", "hot chocolate"]));
+//  console.log(calculateBasket(["savoury muffin", "coffee", "hot chocolate"]));
 
 //  console.log(
 //    calculateBasket([
