@@ -120,8 +120,6 @@ const calculateBasket = (products) => {
         }
       }
     }
-    let originalPrice = orderPrice
-    console.log(originalPrice)
 
     // CURRENT TOTALS
     // e.g. ["savoury muffin", "coffee", "hot chocolate"] 
@@ -134,7 +132,7 @@ const calculateBasket = (products) => {
     const cafePromo = promotions.map(promo => promo.applicableFromCafe)
     const fullList = bakeryProducts.concat(cafeProducts)
 
-
+    let originalPrice = orderPrice
     let combo = [];
     let productMatches = []; 
     let newPrice = [];
@@ -250,7 +248,7 @@ const calculateBasket = (products) => {
 // Exercise output (don't change anything of these but feel free to add more tests)
 //  console.log(calculateBasket(["brownie", "iced coffee"]));
 
-  console.log(calculateBasket(["blueberry muffin", "carrot cake"]));
+//  console.log(calculateBasket(["blueberry muffin", "carrot cake"]));
 
 //  console.log(calculateBasket(["savoury muffin", "coffee", "hot chocolate"]));
 
@@ -265,8 +263,8 @@ const calculateBasket = (products) => {
 //    ])
 //  );
 
-//  console.log(
-//    calculateBasket(["sponge", "tea", "savoury muffin", "coffee", 
-//    "sponge"])
-//  );
+  console.log(
+    calculateBasket(["sponge", "tea", "savoury muffin", "coffee", 
+    "sponge"])
+  );
 
