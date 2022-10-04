@@ -166,7 +166,7 @@ const calculateBasket = (products) => {
               for (let n = 0; n < productMatches.length; n++) {
                 for (let o = 0; o < fullList.length; o++) {
                   if (productMatches[n] == fullList[o].name) {
-                      orderPrice = orderPrice -= fullList[o].unitPrice;
+                      orderPrice -= fullList[o].unitPrice;
                       newPrice.push(orderPrice)
                   } 
                 }
