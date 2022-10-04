@@ -59,26 +59,41 @@ const products = [
   },
 ];
 
+
 function App() {
   return (
     <div className="container">
-      <ProductTile
-        productName="Brownie"
-        productPrice="£3.50"
-        productImageSrc="./images/brownies.jpg"
-      />
-      <ProductTile
-        productName="Coffee"
-        productPrice="£1.50"
-        productImageSrc="./images/coffee.jpg"
-      />
-      <ProductTile
-        productName="Toast"
-        productPrice="£1.00"
-        productImageSrc="./images/toast.jpg"
-      />
+      {products.map((product, i) => (
+        <ProductTile
+          key={i}
+          productName={product.name}
+          productPrice={product.price}
+          productImageSrc={product.image}/>
+      ))}
     </div>
   );
 }
+
+{/* if you want to include animation, npm install & replace
+with the below (include commented out Product.jsx code too)
+
+import { motion } from "framer-motion";
+
+function App() {
+  return (
+    <div className="container">
+      {products.map((product, i) => (
+        <ProductTile
+          key={i}
+          stagger={i} 
+          productName={product.name}
+          productPrice={product.price}
+          productImageSrc={product.image}/>
+      ))}
+    </div>
+  );
+}
+
+*/}
 
 export default App;

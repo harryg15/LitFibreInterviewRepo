@@ -1,6 +1,10 @@
 .productTile {
-  width: 20rem;
-  height: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 20px;
+  margin-top: 10px;
   border: 1px solid black;
   border-radius: 1.6rem;
   box-shadow: 0.5rem 0.5rem 1rem #bbb;
@@ -11,4 +15,5 @@
 }
 
 .productImage {
+  max-width: 100%;
 }
