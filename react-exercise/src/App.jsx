@@ -77,8 +77,6 @@ function App() {
 {/* if you want to include animation, npm install & replace
 with the below (include commented out Product.jsx code too)
 
-import { motion } from "framer-motion";
-
 function App() {
   return (
     <div className="container">
