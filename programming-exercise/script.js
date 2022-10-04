@@ -203,7 +203,7 @@ const calculateBasket = (products) => {
     // promoTotals = [3.8, 4.5]
 
     // we can now determine the most cost effective option! 
-    cheapestPrice = Math.min(...promoTotals)
+    cheapestPrice = Math.min(...promoTotals) 
     
     // if no promotion was found
     if (cheapestPrice === Infinity) {
