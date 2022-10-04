@@ -1,7 +1,7 @@
 import ProductTile from "./components/ProductTile";
 import "./App.css";
 
-const products = [
+const products = [ 
   {
     name: "Brownie",
     price: "£3.50",
