@@ -108,9 +108,6 @@ const calculateBasket = (products) => {
       orderPrice += order.unitPrice
     })
 
-    console.log(orderCals)
-    console.log(orderPrice)
-
     // CURRENT TOTALS
     // e.g. ["savoury muffin", "coffee", "hot chocolate"] 
     // orderCals = 190
@@ -120,13 +117,13 @@ const calculateBasket = (products) => {
 
     const bakeryPromo = promotions.map(promo => promo.applicableFromBakery)
     const cafePromo = promotions.map(promo => promo.applicableFromCafe)
-    const fullList = bakeryProducts.concat(cafeProducts)
 
     let originalPrice = orderPrice
     let combo = [];
-    let productMatches = []; 
     let newPrice = [];
     const promoTotals = [];
+
+    
 
     // looping through every possible pair combination from applicableFromBakery (bakeryPromo) 
     // & applicableFromCafe (cafePromo) arrays
@@ -136,31 +133,26 @@ const calculateBasket = (products) => {
             combo.push(bakeryPromo[i][j])
             combo.push(cafePromo[i][k])
             
-            
+
             // With the current discount combo, we'll loop through our 
             // order for matching items
-            for (let l = 0; l < products.length; l++) {
-              for (let m = 0; m < combo.length; m++) {
-                if (products[l] == combo[m]) {
-                  productMatches.push(products[l])
-                }
-              } 
-            }
+            const comboMatch = combo.filter(item => {
+              return products.includes(item)
+            })
 
-            // if productMatches === 2, it means our order matches 
+            // if comboMatch === 2, it means our order matches 
             // the current combo! Before adding the promotional offer, 
             // we need to take away the original price of the items,
-            // searching through the (fullList)
-            if (productMatches.length === 2) {
+            // searching through the (bakeryCafeList)
+            if (comboMatch.length === 2) {
 
-              for (let n = 0; n < productMatches.length; n++) {
-                for (let o = 0; o < fullList.length; o++) {
-                  if (productMatches[n] == fullList[o].name) {
-                      orderPrice -= fullList[o].unitPrice;
-                      newPrice.push(orderPrice)
-                  } 
-                }
-              }
+            const takeAway = bakeryCafeList.filter(item => {
+              return comboMatch.includes(item.name)
+            })
+            takeAway.forEach(item => {
+              orderPrice -= item.unitPrice
+              newPrice.push(orderPrice)
+            })
               
               // in case more than one promotional offer/combo is eligible
               // (avoiding orderPrice to be deducted a 2nd time)
@@ -170,7 +162,6 @@ const calculateBasket = (products) => {
               // e.g. ["savoury muffin", "coffee", "hot chocolate"] 
               // productMatches = ["savoury muffin", "coffee"]
               // orderPrice = 5 - 1.5(savoury muffin) - 1.5(coffee) = 2
-
 
               promoTotals.push(orderPrice += promotions[i].promotionPrice)
               // orderPrice = 2 + 1.8 = 3.8
