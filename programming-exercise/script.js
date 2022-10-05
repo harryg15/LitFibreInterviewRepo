@@ -91,6 +91,7 @@ const calculateBasket = (products) => {
   let orderCals = 0;
   let orderPrice = 0;
 
+
   /******** Products Totalling ********/
 
     // Full list of every product on the menu
@@ -113,23 +114,25 @@ const calculateBasket = (products) => {
     // orderCals = 190
     // orderPrice = 5
 
+
+
     /******** Promotion Price Check ********/
 
     const bakeryPromo = promotions.map(promo => promo.applicableFromBakery)
     const cafePromo = promotions.map(promo => promo.applicableFromCafe)
 
     let originalPrice = orderPrice
-    let combo = [];
     let newPrice = [];
     const promoTotals = [];
 
     
-
     // looping through every possible pair combination from applicableFromBakery (bakeryPromo) 
     // & applicableFromCafe (cafePromo) arrays
     for (let i = 0; i < bakeryPromo.length; i++) {
         for (let j = 0; j < bakeryPromo[i].length; j++) {
           for (let k = 0; k < cafePromo[i].length; k++) {
+
+            let combo = [];
             combo.push(bakeryPromo[i][j])
             combo.push(cafePromo[i][k])
             
@@ -167,11 +170,6 @@ const calculateBasket = (products) => {
               // orderPrice = 2 + 1.8 = 3.8
               // our end result!
             }
-
-            // Resetting the arrays so it can move onto the next combo 
-            // combination
-            productMatches = [];
-            combo = [];
           }      
         }
     }
@@ -231,7 +229,7 @@ const calculateBasket = (products) => {
 
 //  console.log(calculateBasket(["blueberry muffin", "carrot cake"]));
 
-  console.log(calculateBasket(["savoury muffin", "coffee", "hot chocolate"]));
+//  console.log(calculateBasket(["savoury muffin", "coffee", "hot chocolate"]));
 
 //  console.log(
 //    calculateBasket([
