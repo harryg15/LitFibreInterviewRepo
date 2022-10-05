@@ -91,35 +91,25 @@ const calculateBasket = (products) => {
   let orderCals = 0;
   let orderPrice = 0;
 
-  /******** bakeryProducts Total********/
-  
-    const bakeryArr = bakeryProducts.map(product => product.name)
+  /******** Products Totalling ********/
 
-    // if our (products) name == the (bakeryArr) name, it will add that 
-    // corresponding calories & unit price
-    for (let i = 0; i < products.length; i++) {
-      for (let j = 0; j < bakeryArr.length; j++) {
-        if (products[i] == bakeryArr[j]) {
-          orderCals += bakeryProducts[j].calories;
-          orderPrice += bakeryProducts[j].unitPrice;
-        }
-      }
-    }
+    // Full list of every product on the menu
+    const bakeryCafeList = [...bakeryProducts, ...cafeProducts]
 
-    /******** cafeProducts Total********/
-    
-    const cafeArr = cafeProducts.map(product => product.name)
+    // Filters the matching names from bakeryCafeList with your order
+    const matchingProducts = bakeryCafeList.filter(item => {
+      return products.includes(item.name)
+    })
 
+    // For each order object, we add the corresponding orderCals & 
+    // orderPrice
+    matchingProducts.forEach(order => {
+      orderCals += order.calories
+      orderPrice += order.unitPrice
+    })
 
-    // same as above, going through cafeProducts
-    for (let i = 0; i < products.length; i++) {
-      for (let j = 0; j < cafeArr.length; j++) {
-        if (products[i] == cafeArr[j]) {
-          orderCals += cafeProducts[j].calories;
-          orderPrice += cafeProducts[j].unitPrice;
-        }
-      }
-    }
+    console.log(orderCals)
+    console.log(orderPrice)
 
     // CURRENT TOTALS
     // e.g. ["savoury muffin", "coffee", "hot chocolate"] 
@@ -250,7 +240,7 @@ const calculateBasket = (products) => {
 
 //  console.log(calculateBasket(["blueberry muffin", "carrot cake"]));
 
-//  console.log(calculateBasket(["savoury muffin", "coffee", "hot chocolate"]));
+  console.log(calculateBasket(["savoury muffin", "coffee", "hot chocolate"]));
 
 //  console.log(
 //    calculateBasket([
