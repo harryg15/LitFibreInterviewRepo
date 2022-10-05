@@ -229,7 +229,7 @@ const calculateBasket = (products) => {
 
 //  console.log(calculateBasket(["blueberry muffin", "carrot cake"]));
 
-//  console.log(calculateBasket(["savoury muffin", "coffee", "hot chocolate"]));
+  console.log(calculateBasket(["savoury muffin", "coffee", "hot chocolate"]));
 
 //  console.log(
 //    calculateBasket([
