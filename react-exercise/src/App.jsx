@@ -75,7 +75,7 @@ function App() {
 }
 
 {/* if you want to include animation, npm install & replace
-with the below (include commented out Product.jsx code too)
+with the below (include commented out ProductTile.jsx code too)
 
 function App() {
   return (
