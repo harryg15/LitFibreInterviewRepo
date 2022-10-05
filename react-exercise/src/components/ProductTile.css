@@ -1,4 +1,10 @@
+@font-face {
+  font-family: 'BlackOblique';
+  src: url('../Fonts/GTWalsheimPro-BlackOblique.woff2');
+}
+
 .productTile {
+  font-family: "BlackOblique";
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8,6 +14,11 @@
   border: 1px solid black;
   border-radius: 1.6rem;
   box-shadow: 0.5rem 0.5rem 1rem #bbb;
+}
+
+.productTile:hover {
+  box-shadow: 0.5rem 0.5rem 1rem rgb(255, 255, 255);
+  cursor: pointer;
 }
 
 .productTile > p {

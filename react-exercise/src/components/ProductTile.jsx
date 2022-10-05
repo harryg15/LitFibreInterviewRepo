@@ -16,12 +16,13 @@ with the below (include commented out App.jsx code too)
 
 import { motion } from "framer-motion"; 
 
-const ProductTile = ({ productName, productPrice, productImageSrc, stagger }) => {
+const ProductTile = ({ productName, productPrice, productImageSrc }) => {
   return (
     <motion.div className="productTile" 
     initial={{opacity: 0}}
     animate={{opacity: 1}}
-    transition={{duration: 0.5, delay: stagger * 0.5}}
+    whileHover={{scale: 1.05}}
+    whileTap={{scale: 0.95}}
     >
       <h2 className="productHeader">{productName}</h2>
       <img src={productImageSrc} alt="product" className="productImage" />

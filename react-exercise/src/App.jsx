@@ -1,4 +1,4 @@
-import ProductTile from "./components/ProductTile";
+import ProductTile from "./components/ProductTile"; 
 import "./App.css";
 
 const products = [ 
@@ -77,20 +77,25 @@ function App() {
 {/* if you want to include animation, npm install & replace
 with the below (include commented out ProductTile.jsx code too)
 
+import { motion } from "framer-motion";
+
 function App() {
   return (
-    <div className="container">
+    <motion.div className="container"
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    transition={{delay: 0.5}}
+    >
       {products.map((product, i) => (
         <ProductTile
           key={i}
-          stagger={i} 
           productName={product.name}
           productPrice={product.price}
           productImageSrc={product.image}/>
       ))}
-    </div>
+    </motion.div>
   );
-} 
+}
 
 */}
 
