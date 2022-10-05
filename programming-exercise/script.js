@@ -163,7 +163,7 @@ const calculateBasket = (products) => {
               
               // SO FAR
               // e.g. ["savoury muffin", "coffee", "hot chocolate"] 
-              // productMatches = ["savoury muffin", "coffee"]
+              // comboMatches = ["savoury muffin", "coffee"]
               // orderPrice = 5 - 1.5(savoury muffin) - 1.5(coffee) = 2
 
               promoTotals.push(orderPrice += promotions[i].promotionPrice)
