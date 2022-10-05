@@ -102,8 +102,8 @@ const calculateBasket = (products) => {
       return products.includes(item.name)
     })
 
-    // For each order object, we add the corresponding orderCals & 
-    // orderPrice
+    // For each order object, we add the corresponding calories & 
+    // unitPrice
     matchingProducts.forEach(order => {
       orderCals += order.calories
       orderPrice += order.unitPrice
