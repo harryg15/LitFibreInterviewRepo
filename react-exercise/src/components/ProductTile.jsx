@@ -6,7 +6,7 @@ const ProductTile = ({ productName, productPrice, productImageSrc }) => {
     <div className="productTile" >
       <h2 className="productHeader">{productName}</h2>
       <img src={productImageSrc} alt="product" className="productImage" />
-      <p>{productPrice}</p>
+      <p>{productPrice}</p> 
     </div>
   );
 };
