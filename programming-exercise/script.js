@@ -97,22 +97,24 @@ const calculateBasket = (products) => {
     // Full list of every product on the menu
     const bakeryCafeList = [...bakeryProducts, ...cafeProducts]
 
-    // Filters the matching names from bakeryCafeList with your order
-    const matchingProducts = bakeryCafeList.filter(item => {
-      return products.includes(item.name)
-    })
+    // Looping through to find matching names & add the 
+    // corresponding calories & unitPrice 
 
-    // For each order object, we add the corresponding calories & 
-    // unitPrice
-    matchingProducts.forEach(order => {
-      orderCals += order.calories
-      orderPrice += order.unitPrice
+    bakeryCafeList.forEach(item => {
+      products.forEach(product => {
+        if (product === item.name) {
+          orderCals += item.calories;
+          orderPrice += item.unitPrice;
+        }
+      })
     })
 
     // CURRENT TOTALS
     // e.g. ["savoury muffin", "coffee", "hot chocolate"] 
     // orderCals = 190
     // orderPrice = 5
+
+    // Bug Note: what if theres ["coffee", "coffee", "brownie"]
 
 
 
@@ -143,7 +145,7 @@ const calculateBasket = (products) => {
               return products.includes(item)
             })
 
-            // if comboMatch === 2, it means our order matches 
+            // if comboMatch.length === 2, it means our order matches 
             // the current combo! Before adding the promotional offer, 
             // we need to take away the original price of the items,
             // searching through the (bakeryCafeList)
@@ -182,9 +184,9 @@ const calculateBasket = (products) => {
     // promoTotals = [3.8, 4.5]
 
     // we can now determine the most cost effective option! 
-    cheapestPrice = Math.min(...promoTotals)
-    let savings = (originalPrice - cheapestPrice).toFixed(1)
-    let discount = `You're saving £${savings}0!`
+    cheapestPrice = (Math.min(...promoTotals)).toFixed(2)
+    let savings = (originalPrice - cheapestPrice).toFixed(2)
+    let discount = `You're saving £${savings}!`
     
     // if no promotion was found
     if (cheapestPrice === Infinity) {
@@ -193,7 +195,7 @@ const calculateBasket = (products) => {
     }
 
     return {
-      totalPrice: `£${cheapestPrice}0`,
+      totalPrice: `£${cheapestPrice}`,
       totalCalories: `${orderCals}`,
       discount 
     }

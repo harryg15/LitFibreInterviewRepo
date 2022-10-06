@@ -6,6 +6,7 @@
 .productTile {
   font-family: "BlackOblique";
   display: flex;
+  max-width: 400px;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
