@@ -184,9 +184,9 @@ const calculateBasket = (products) => {
     // promoTotals = [3.8, 4.5]
 
     // we can now determine the most cost effective option! 
-    cheapestPrice = Math.min(...promoTotals)
-    let savings = (originalPrice - cheapestPrice).toFixed(1)
-    let discount = `You're saving £${savings}0!`
+    cheapestPrice = (Math.min(...promoTotals)).toFixed(2)
+    let savings = (originalPrice - cheapestPrice).toFixed(2)
+    let discount = `You're saving £${savings}!`
     
     // if no promotion was found
     if (cheapestPrice === Infinity) {
@@ -195,7 +195,7 @@ const calculateBasket = (products) => {
     }
 
     return {
-      totalPrice: `£${cheapestPrice}0`,
+      totalPrice: `£${cheapestPrice}`,
       totalCalories: `${orderCals}`,
       discount 
     }
